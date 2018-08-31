@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+  <meta charset="UTF-8" />
+</head>
+
+<body>
+  <div id="app">
+
+    <select v-model="icindekiler" @change="icmenu">
+  <option disabled value="">Please select one</option>
+  <option  v-for="deger in menu">{{deger}}</option>
+
+</select>
+    <li v-for='(icerik,index) in icindekiler'>
+      {{icerik}}
+      <input type="text" v-bind:id='index' placeholder="miktar"></input>
+      <input type="button" v-on:click='ekle(icerik,index)' value="EKLE"></input>
+    </li>
+    <ul>
+      <li v-for='siparis in deger'>{{siparis.ne}}---{{siparis.miktar}}
+        <input type="button" v-on:click='sil(siparis)' value="İPTAL ET"></input>
+
+      </li>
+    </ul>
+  </div>
+  <script src="./js/app.js"></script>
+</body>
+
+</html>
